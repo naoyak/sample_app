@@ -9,6 +9,7 @@ gem 'pg', '0.14.1'
 group :development, :test do
 	# gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.9.0'
+	gem 'guard-rspec', '0.5.5'
 end
 
 
@@ -27,7 +28,13 @@ end
 gem 'jquery-rails'
 
 group :test do
+	gem 'rspec-rails', '2.9.0'
 	gem 'capybara', '1.1.2'
+	gem 'rb-fsevent', :require => false
+	gem 'growl', '1.0.3'
+	gem 'guard-spork'
+	gem 'spork'
+
 end
 
 =begin group :production do
