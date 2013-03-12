@@ -47,7 +47,7 @@ describe User do
    	        @user.should_not be_valid
    	      end      
    	    end
-   	  end
+   	end
 
    	describe "when email format is valid" do
    	    it "should be valid" do
@@ -75,7 +75,7 @@ describe User do
    			@user.reload.email.should == mixed_case_email.downcase
    		end
    	end
-   	
+
    	describe "when password is not present" do
    		before {@user.password = @user.password_confirmation =  " "}
    		it {should_not be_valid}
@@ -110,7 +110,4 @@ describe User do
    			specify { user_for_invalid_password.should be_false}
    		end
    	end
-
-
-
 end
