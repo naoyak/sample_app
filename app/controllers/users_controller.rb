@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 	before_filter :already_signed_in, only: [:new, :create]
   def show
   	@user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
   def new
   	@user = User.new
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   	end
   end
   def index
-  	flash[:success] = request.server_software
+  	# flash[:success] = request.server_software
   	@users = User.paginate(page: params[:page])
   end
 
@@ -47,12 +48,7 @@ class UsersController < ApplicationController
 
 
   private
-  	def signed_in_user
-  		unless signed_in?
-  			store_location
-  			redirect_to signin_url, notice: "Please sign in."
-  		end
-  	end
+  	
   	def correct_user
   		@user = User.find(params[:id])
   		redirect_to(root_path) unless current_user?(@user)
