@@ -209,6 +209,15 @@ aside {
   }
 }
 
+/* micropost jQuery countdown */
+
+.counter {
+  display: inline;
+  padding: 10px 10px;
+  float: right;
+  color: $blue;
+}
+
 /* miscellaneous */
 
 .debug_dump {
